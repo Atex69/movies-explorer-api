@@ -45,7 +45,7 @@ app.use(errorLogger);
 app.use(errors());
 app.use(errorHandler);
 
-mongoose.set('strictQuery', false)
+mongoose.set('strictQuery', false);
 mongoose.connect(DB_ADDRESS, () => {
   console.log('Connection successful');
 });
