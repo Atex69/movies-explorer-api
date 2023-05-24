@@ -71,9 +71,19 @@ const login = (req, res, next) => {
     .catch(next);
 };
 
+const logout = (req, res) => {
+  res.status(200).clearCookie('token', {
+    httpOnly: true,
+    sameSite: 'none',
+    secure: true,
+  })
+    .send({ message: 'Вы вышли из системы' });
+};
+
 module.exports = {
   getUser,
   updateUser,
   createUser,
   login,
+  logout,
 };
